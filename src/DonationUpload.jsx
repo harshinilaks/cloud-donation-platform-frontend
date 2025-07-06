@@ -23,6 +23,16 @@ export default function DonationUpload() {
     fetchDropZones();
   }, []);
 
+  function arrayBufferToBase64(buffer) {
+    let binary = "";
+    const bytes = new Uint8Array(buffer);
+    const len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return btoa(binary);
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -37,7 +47,7 @@ export default function DonationUpload() {
     }
 
     const fileBytes = await file.arrayBuffer();
-    const base64 = btoa(String.fromCharCode(...new Uint8Array(fileBytes)));
+    const base64 = arrayBufferToBase64(fileBytes);
 
     const payload = {
       dropzoneId,
@@ -60,6 +70,7 @@ export default function DonationUpload() {
     console.log("Donation response:", data);
     alert(`Donation created!\nDownload link: ${data.donation.downloadUrl}`);
 
+    // Optionally reset form
     setDropzoneId("");
     setDonorName("");
     setDonorNote("");

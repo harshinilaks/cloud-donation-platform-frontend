@@ -78,14 +78,31 @@ export default function DonationUpload() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Upload Donation</h2>
-
-      <label>
-        Select Drop Zone:
+    <form onSubmit={handleSubmit} style={{
+        background: "#fff",
+        padding: "20px",
+        borderRadius: "8px",
+        boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+        marginBottom: "20px"
+      }}>
+        <h2 style={{
+          marginBottom: "15px",
+          color: "#8e44ad"
+        }}>Upload Donation</h2>
+      
+        <label style={{ display: "block", marginBottom: "8px" }}>
+          Select Drop Zone
+        </label>
         <select
           value={dropzoneId}
           onChange={e => setDropzoneId(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "8px",
+            marginBottom: "12px",
+            borderRadius: "4px",
+            border: "1px solid #ccc"
+          }}
         >
           <option value="">-- Select Drop Zone --</option>
           {dropzones.map(dz => (
@@ -94,24 +111,71 @@ export default function DonationUpload() {
             </option>
           ))}
         </select>
-      </label>
-      <br />
-
-      <input
-        value={donorName}
-        onChange={e => setDonorName(e.target.value)}
-        placeholder="Donor Name"
-      /><br />
-      <input
-        value={donorNote}
-        onChange={e => setDonorNote(e.target.value)}
-        placeholder="Donor Note"
-      /><br />
-      <input
-        type="file"
-        onChange={e => setFile(e.target.files[0])}
-      /><br />
-      <button type="submit">Upload Donation</button>
-    </form>
+      
+        <label style={{ display: "block", marginBottom: "8px" }}>
+          Donor Name
+        </label>
+        <input
+          value={donorName}
+          onChange={e => setDonorName(e.target.value)}
+          placeholder="Donor name"
+          style={{
+            width: "100%",
+            padding: "8px",
+            marginBottom: "12px",
+            borderRadius: "4px",
+            border: "1px solid #ccc"
+          }}
+        />
+      
+        <label style={{ display: "block", marginBottom: "8px" }}>
+          Donor Note
+        </label>
+        <input
+          value={donorNote}
+          onChange={e => setDonorNote(e.target.value)}
+          placeholder="Short note"
+          style={{
+            width: "100%",
+            padding: "8px",
+            marginBottom: "12px",
+            borderRadius: "4px",
+            border: "1px solid #ccc"
+          }}
+        />
+      
+      <label htmlFor="fileUpload" style={{
+  display: "inline-block",
+  background: "#9b59b6",
+  color: "#fff",
+  padding: "10px 20px",
+  borderRadius: "4px",
+  cursor: "pointer",
+  marginBottom: "16px"
+}}>
+  Choose File
+</label>
+<input
+  id="fileUpload"
+  type="file"
+  onChange={e => setFile(e.target.files[0])}
+  style={{
+    display: "none"
+  }}
+/>
+{file && <p style={{ color: "#333" }}>{file.name}</p>}
+      
+        <button type="submit" style={{
+          background: "#9b59b6",
+          color: "#fff",
+          border: "none",
+          padding: "10px 20px",
+          borderRadius: "4px",
+          cursor: "pointer"
+        }}>
+          Upload Donation
+        </button>
+      </form>
+      
   );
 }

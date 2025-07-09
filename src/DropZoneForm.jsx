@@ -68,7 +68,7 @@ export default function DropZoneForm() {
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Description"
+          placeholder="Description - Event, Needed Items, etc."
           style={{
             width: "100%", // fill the form container
             padding: "8px",

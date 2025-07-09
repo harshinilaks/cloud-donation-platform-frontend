@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function DropZoneForm() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [neededItems, setNeededItems] = useState("");
+//   const [neededItems, setNeededItems] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -11,7 +11,7 @@ export default function DropZoneForm() {
     const payload = {
       name,
       description,
-      neededItems: neededItems.split(",").map(item => item.trim()),
+    //   neededItems: neededItems.split(",").map(item => item.trim()),
     };
     const apiBase = import.meta.env.VITE_API_URL;
     const res = await fetch(`${apiBase}/dropzones`, {
@@ -79,7 +79,7 @@ export default function DropZoneForm() {
           }}
         />
 
-        <label style={{ marginBottom: "8px" }}>
+        {/* <label style={{ marginBottom: "8px" }}>
           Needed Items (comma separated)
         </label>
         <input
@@ -94,7 +94,7 @@ export default function DropZoneForm() {
             border: "1px solid #ccc",
             fontSize: "16px",
           }}
-        />
+        /> */}
 
         <button
           type="submit"

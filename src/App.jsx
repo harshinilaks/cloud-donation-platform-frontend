@@ -16,20 +16,32 @@ export default function App() {
       }}
     >
       <header
-        style={{
-          textAlign: "center",
-          marginBottom: "40px",
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "3em",
-            color: "#7c3aed",
-          }}
-        >
-          ReliefDrop Dashboard
-        </h1>
-      </header>
+  style={{
+    textAlign: "center",
+    marginBottom: "40px",
+  }}
+>
+  <h1
+    style={{
+      fontSize: "3em",
+      color: "#7c3aed",
+    }}
+  >
+    ReliefDrop Dashboard
+  </h1>
+  <p
+    style={{
+      fontSize: "1.2em",
+      color: "#4c1d95",
+      maxWidth: "600px",
+      margin: "10px auto 0 auto",
+      lineHeight: "1.6",
+    }}
+  >
+    Here is a platform to organize local drives for our community! Feel free
+    to create a drop zone or donate to an existing drop zone.
+  </p>
+</header>
 
       <div
         style={{
